@@ -15,7 +15,6 @@ class ChildFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Toast.makeText(view.context, "onViewCreated", Toast.LENGTH_SHORT).show()
         view.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewDetachedFromWindow(v: View?) {
                 Toast.makeText(view.context, "onViewDetachedFromWindow", Toast.LENGTH_SHORT).show()

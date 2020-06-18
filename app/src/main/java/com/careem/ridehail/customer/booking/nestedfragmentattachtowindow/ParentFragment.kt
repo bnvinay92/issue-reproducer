@@ -17,13 +17,13 @@ class ParentFragment : Fragment() {
         val scope = CoroutineScope(Dispatchers.Main.immediate + SupervisorJob())
         scope.launch {
             doSomething()
+            commitChildFragment() // moving this to #onViewCreated triggers ChildFragment's rootview's attachStateChangeListener. Why?
         }
         return viewGroup
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        commitChildFragment()
     }
 
     private fun commitChildFragment() {
