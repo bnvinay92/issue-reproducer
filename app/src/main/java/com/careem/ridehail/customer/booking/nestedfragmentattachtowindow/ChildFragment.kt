@@ -13,15 +13,16 @@ class ChildFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_child, container, false) as ViewGroup
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        view.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val attached = view!!.isAttachedToWindow
+        view!!.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewDetachedFromWindow(v: View?) {
-                Toast.makeText(view.context, "onViewDetachedFromWindow", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view!!.context, "onViewDetachedFromWindow", Toast.LENGTH_SHORT).show()
             }
 
             override fun onViewAttachedToWindow(v: View?) {
-                Toast.makeText(view.context, "onViewAttachedToWindow", Toast.LENGTH_SHORT).show() // Not called :(
+                Toast.makeText(view!!.context, "onViewAttachedToWindow", Toast.LENGTH_SHORT).show() // Not called :(
             }
         })
     }
