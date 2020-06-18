@@ -21,7 +21,7 @@ class ChildFragment : Fragment() {
             }
 
             override fun onViewAttachedToWindow(v: View?) {
-                Toast.makeText(view.context, "onViewAttachedToWindow", Toast.LENGTH_SHORT).show()
+                Toast.makeText(view.context, "onViewAttachedToWindow", Toast.LENGTH_SHORT).show() // Not called :(
             }
         })
     }
